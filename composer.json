@@ -1,0 +1,63 @@
+{
+  "name": "panelis-php/activity",
+  "description": "Display application activity logs in the Panelis admin panel",
+  "keywords": [
+    "panelis"
+  ],
+  "authors": [
+    {
+      "name": "Yugo",
+      "email": "dedy.yugo.purwanto@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "type": "library",
+  "require": {
+    "php": "^8.4",
+    "filament/filament": "^5.0",
+    "laravel/framework": "^13.0",
+    "spatie/laravel-activitylog": "^5.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.29",
+    "orchestra/testbench": "^11.0",
+    "pestphp/pest": "^4.4",
+    "pestphp/pest-plugin-laravel": "^4.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Panelis\\Activity\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Panelis\\Activity\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    },
+    "platform": {
+      "php": "8.4"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Panelis\\Activity\\Providers\\ActivityServiceProvider"
+      ]
+    },
+    "panelis": {
+      "plugins": [
+        "Panelis\\Activity\\Plugins\\ActivityPlugin"
+      ],
+      "permissions": {
+        "activity": "Panelis\\Activity\\Panel\\Resources\\ActivityResource\\Enums\\ActivityPermission"
+      }
+    }
+  }
+}
