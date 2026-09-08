@@ -9,7 +9,7 @@ if (! function_exists('activity_logging_enabled')) {
     function activity_logging_enabled(): bool
     {
         if (class_exists(Setting::class)) {
-            return (bool) Setting::get('activity.enabled', config('activitylog.enabled', true));
+            return (bool) Setting::get('activity.enabled', false);
         }
 
         return (bool) config('activitylog.enabled', true);
